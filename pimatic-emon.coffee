@@ -67,21 +67,25 @@ module.exports = (env) ->
         token : ""
 
       constructor: (@config) ->
-        @id = config.id
-        @name = config.name
-        @ip = config.ip
-        @port = config.port
-        @username = config.username
-        @password = config.password
-        @interval = config.interval
-        @meterid = config.meterid
+        @id = @config.id
+        @name = @config.name
+        @ip = @config.ip
+        @port = parseInt @config.port
+        @username = @config.username
+        @password = @config.password
+        @interval = parseInt @config.interval
+        @meterid = @config.meterid
 
         super()
 
-        setInterval( =>
+        @timerId = setInterval( =>
           @requestData()
         , @interval
         )
+
+      destroy: () ->
+        clearInterval @timerId if @timerId?
+        super()
 
       http = require "http"
       

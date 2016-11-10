@@ -6,27 +6,27 @@ module.exports = {
     properties:
       ip:
         description: "E-monitor server IP address"
-        format: String
+        type: "string"
         default: "127.0.0.1"
       port:
         description: "E-monitor server port number"
-        format: String
+        type: "string"
         default: "12345"
       username:
         description: "username for the emon RESTful service"
-        format: String
+        type: "string"
         default: ""
       password:
         description: "username for the emon RESTful service"
-        format: String
+        type: "string"
         default: ""
       interval:
         description: "Request interval"
-        format: Number
-        default: "100000" 
+        type: "number"
+        default: "100000"
       meterid:
         description: "E meter identification"
-        format: Number
-        default: ""     
+        type: "number"
+        default: 0
   }
 } 
